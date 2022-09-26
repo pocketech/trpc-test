@@ -5,7 +5,15 @@ import styles from "../styles/Home.module.css";
 
 import type { NextPage } from "next";
 
+import { trpc } from "@/utils/trpc";
+
 const Home: NextPage = () => {
+  const hello = trpc.hello.useQuery({ text: "client" });
+
+  if (!hello.data) {
+    return null;
+  }
+
   return (
     <div className={styles["container"]}>
       <Head>
@@ -22,7 +30,7 @@ const Home: NextPage = () => {
 
       <main className={styles["main"]}>
         <h1 className={styles["title"]}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          {hello.data.greeting} to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
         <p className={styles["description"]}>
