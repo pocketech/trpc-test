@@ -35,8 +35,11 @@ module.exports = {
   overrides: [],
   rules: {
     "arrow-body-style": ["error", "always"],
+    "id-length": "off",
+    "line-comment-position": "off",
     "max-lines-per-function": "off",
     "multiline-comment-style": "off",
+    "no-inline-comments": "off",
     "no-nested-ternary": "off",
     "no-restricted-syntax": [
       "error",
@@ -46,6 +49,8 @@ module.exports = {
       },
     ],
     "no-ternary": "off",
+    "no-undefined": "off",
+    "one-var": ["error", "never"],
     "sort-imports": "off",
     "sort-keys": "off",
 
@@ -85,6 +90,7 @@ module.exports = {
         prefix: ["is", "has", "should", "can"],
       },
     ],
+    "import/no-unresolved": ["error", { ignore: ["^@/(.*)$"] }],
     "import/order": [
       "warn",
       {
